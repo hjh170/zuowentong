@@ -2,7 +2,10 @@
 
 一个面向小学生的**词句积累闯关小应用**，单文件 HTML，打开即玩。每天积累好词好句，让作文写得更漂亮。
 
-**在线体验**：https://hjh170.github.io/zuowentong/
+**在线体验**
+
+- GitHub Pages：https://hjh170.github.io/zuowentong/
+- Cloudflare Pages：https://zuowentong.pages.dev/
 
 - 入口文件：`index.html`（双击即可在浏览器打开）
 - 形态：纯前端单页应用，无任何外部依赖（不联网、不加载 CDN、无构建步骤）
