@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "作文通 · 优秀作文词句闯关",
+  "short_name": "作文通",
+  "description": "每天积累好词好句，作文越写越漂亮。15 个主题关卡、好句宝库、范文欣赏与仿写练习。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#58a700",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

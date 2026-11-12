@@ -7,6 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>作文通 · 优秀作文词句闯关</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-title" content="作文通">
 <style>
 *{box-sizing:border-box}
 :root{--bg:#fff;--fg:#232b2f;--mut:#5f6b73;--card:#f3f6f8;--line:#dfe6ea;--g:#4f9600;--gl:#e7f6d3;--r:#d32f2f;--rl:#ffe3e3;--b:#1279b8;--gold:#b8860b;--sh:0 3px 0 var(--line);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);font-size:16px}
@@ -28,12 +32,12 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .da{display:flex;gap:8px;flex-wrap:wrap}
 .mini{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-size:13px;font-weight:700;background:var(--bg);box-shadow:var(--sh);color:var(--fg);min-height:40px}
 .mini:active{transform:translateY(2px);box-shadow:none}
-.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
-.q{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px 4px;box-shadow:var(--sh);min-height:74px;justify-content:center}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.q{display:flex;flex-direction:column;align-items:center;gap:1px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:9px 2px;box-shadow:var(--sh);min-height:72px;justify-content:center}
 .q:active{transform:translateY(2px);box-shadow:none}
-.q b{font-size:19px}
-.q span{font-size:13px;font-weight:700}
-.q small{font-size:11px;color:var(--mut)}
+.q b{font-size:18px}
+.q span{font-size:12px;font-weight:700;white-space:nowrap}
+.q small{font-size:10px;color:var(--mut);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .prog{display:flex;align-items:center;gap:10px;margin:2px 0 6px;font-size:13px;color:var(--mut)}
 .prog .bar{height:10px}
 .bar{flex:1;height:14px;background:var(--line);border-radius:9px;overflow:hidden}
@@ -116,7 +120,38 @@ h2{font-size:19px;margin:8px 0 14px}
 .btnrow .mini{flex:1;min-width:100px;text-align:center}
 .ta{width:100%;min-height:140px;padding:14px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--fg);font:inherit;font-size:16px;line-height:1.7;resize:vertical}
 .row{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--mut);margin:8px 0 12px}
+
+.feature{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:linear-gradient(135deg,var(--gl),var(--card) 75%);border:2px solid var(--line);border-radius:16px;padding:12px 14px;margin:0 0 14px;box-shadow:var(--sh)}
+.feature:active{transform:translateY(2px);box-shadow:none}
+.fic{font-size:26px;flex:0 0 auto}
+.ftxt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.ftxt b{font-size:16px}
+.ftxt small{color:var(--mut);font-size:12px;line-height:1.4}
+.fgo{font-size:22px;color:var(--mut);flex:0 0 auto}
+.ecard{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;box-shadow:var(--sh)}
+.ecard:active{transform:translateY(2px);box-shadow:none}
+.en{font-size:15px;font-weight:700;color:var(--gold);flex:0 0 auto}
+.et{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.et b{font-size:16px}
+.et small{color:var(--mut);font-size:12px}
+.ea{color:var(--mut);font-size:20px;flex:0 0 auto}
+.dtag{display:inline-block;background:var(--gl);color:var(--g);font-size:12px;font-weight:700;border-radius:8px;padding:3px 10px;margin:0 0 10px}
+.essay p{font-size:16.5px;line-height:1.95;margin:0 0 14px;text-indent:2em}
+.note{background:var(--card);border-radius:14px;padding:12px 14px;margin:6px 0 14px;font-size:14px;line-height:1.75}
+.note b{display:block;color:var(--g);font-size:12px;letter-spacing:.5px;margin:8px 0 2px}
+.note b:first-child{margin-top:0}
+.note p{margin:0}
+.mini:disabled{opacity:.4;box-shadow:none;transform:none}
 .warn{color:var(--r);font-size:13px;min-height:18px;margin:2px 0 8px}
+.gh small{font-weight:400;font-size:12px;color:var(--mut)}
+.hints{margin:8px 0 0;padding-left:20px;line-height:1.8}
+.hints li{margin:2px 0}
+.tpls{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.tbtn{width:100%;text-align:left;padding:12px 14px;border:2px solid var(--line);border-radius:14px;background:var(--card);font-size:16px;font-weight:700;line-height:1.55;box-shadow:var(--sh)}
+.tbtn:active{transform:translateY(2px);box-shadow:none}
+.tbtn.on{border-color:var(--g);background:var(--gl);box-shadow:0 3px 0 var(--g)}
+.eg{font-size:13px;color:var(--mut);line-height:1.7;border-left:4px solid var(--g);padding:8px 12px;background:var(--card);border-radius:0 10px 10px 0;margin:2px 0 4px}
+.chip.sm{font-size:15px;padding:8px 12px;min-height:40px}
 </style>
 </head>
 <body><div id="app"></div>
@@ -139,7 +174,11 @@ const RD={
 const U=[
 {n:"写景篇",e:"🌄",c:"#58a700",g:0,
  tip:"写景要调动多种感官：看到的颜色、听到的声音、闻到的气味都写进去，画面才立体。",
- tpl:"远处的___像___，___。",
+ tpls:[
+  ["远处的___像___，___。","远处的雪山像一条洁白的哈达，静静地铺在天边。"],
+  ["___，___，像___。","风一吹，满树的银杏叶摇起来，像一群金色的小扇子。"],
+  ["我最喜欢___，因为___。","我最喜欢雨后的黄昏，因为空气里都是青草的味道。"]],
+ hints:["先想清楚写哪里：山坡、湖边，还是放学的小路？","挑一个最特别的颜色或声音，写进句子里。","最后加一句你的感受，画面就活了。"],
  pool:["全神贯注","兴高采烈","一丝不苟","津津有味","愁眉苦脸","活蹦乱跳","目瞪口呆","循循善诱","锲而不舍","语重心长"],
  w:[
  ["波光粼粼","水面闪动着细碎的光","湖面上___，像撒满了碎金。"],
@@ -159,8 +198,12 @@ const U=[
 
 {n:"人物篇",e:"🧑‍🏫",c:"#1c8fd6",g:0,
  tip:"写人要抓「一个细节」：一个眼神、一句口头禅、一个习惯动作，比十句“他很好”更有力。",
- tpl:"___一___，像___。",
- pool:["波光粼粼","姹紫嫣红","硕果累累","骄阳似火","白雪皑皑","拾金不昧","秋高气爽","张牙舞爪","锣鼓喧天","书声琅琅"],
+ tpls:[
+  ["___一___，像___。","爷爷一挑起扁担，背就弯成了一张弓。"],
+  ["___总是___，连___都___。","奶奶总是笑眯眯的，连皱纹里都盛着笑意。"],
+  ["我最佩服___，因为___。","我最佩服同桌小雨，因为她能把一道题讲三遍还不着急。"]],
+ hints:["先想写谁：家人、老师，还是同学？","抓住一个动作或一句口头禅，别只写“他很好”。","最后说说你对他的感觉。"],
+ pool:["波光粼粼","姹紫嫣红","硕果累累","骄阳似火","白雪皑皑","拾金不昧","秋高气爽","张牙舞爪","引人入胜","书声琅琅"],
  w:[
  ["神采奕奕","精神饱满、容光焕发","爷爷穿上新衣，___地站在门口迎客。"],
  ["慈眉善目","面容和善慈祥","那位老奶奶___，让人倍感亲切。"],
@@ -177,9 +220,38 @@ const U=[
  {a:["外婆","总是","笑眯眯地","站在门口等我"],t:"外婆总是笑眯眯地站在门口等我。"},
  {a:["她的眼睛","像","一汪","清泉","清澈见底"],t:"她的眼睛像一汪清泉，清澈见底。",k:"比喻",alt:[[0,4,1,2,3]]}]},
 
+{n:"写事篇",e:"📝",c:"#e05c2b",g:0,
+ tip:"写事要有「经过」：先交代时间地点，再写一个最紧张的瞬间，最后写结果。",
+ tpls:[
+  ["那一次，我___，心里像___。","那一次，我第一次独自坐公交，心里像揣了一只乱撞的小兔子。"],
+  ["___先___，接着___，最后___。","我先接水，接着打蛋，最后把蛋液倒进锅里。"],
+  ["虽然___，但是___。","虽然排练了很多遍，但是上台时我还是忘了词。"]],
+ hints:["先交代：什么时候、谁、在哪里、做了什么。","挑一个最紧张的瞬间写具体，比如手在抖、心跳很快。","最后写结果和心情，一件事就完整了。"],
+ pool:["波光粼粼","层峦叠嶂","姹紫嫣红","白雪皑皑","秋高气爽","眉清目秀","憨态可掬","循循善诱","语重心长","硕果累累"],
+ w:[
+ ["兴致勃勃","兴趣浓厚，情绪高涨","同学们___地报名参加这次活动，个个摩拳擦掌。"],
+ ["手忙脚乱","做事慌张，没有条理","第一次做饭，我___，把盐撒了一地。"],
+ ["有条不紊","做事有条理，一点不乱","她___地安排着小组的任务。"],
+ ["一鼓作气","趁劲头大的时候一下子把事情做完","我们___，把剩下的活儿全干完了，谁也不肯休息。"],
+ ["小心翼翼","形容举动十分谨慎","我___地捧着那盆刚栽好的花。"],
+ ["恍然大悟","一下子明白过来","听了老师的解释，我___：原来这道题这么简单！"],
+ ["哭笑不得","哭也不是，笑也不是","弟弟把盐当成了糖，让我___，不知道该说什么好。"],
+ ["历历在目","往事清清楚楚地呈现在眼前","那次拔河比赛，至今仍___，每个人的表情我都记得。"]],
+ s:[
+ {a:["那天","我","第一次","学会了","骑自行车"],t:"那天，我第一次学会了骑自行车。"},
+ {a:["同学们","排着队","走进","明亮的教室"],t:"同学们排着队走进明亮的教室。"},
+ {a:["我","深吸一口气","推开了","那扇门"],t:"我深吸一口气，推开了那扇门。"},
+ {a:["第一次","上台","演讲","我","紧张得","心都要跳出来了"],t:"第一次上台演讲，我紧张得心都要跳出来了。",k:"夸张"},
+ {a:["这件事","像","一颗小石子","投进了","我心里的湖面"],t:"这件事像一颗小石子，投进了我心里的湖面。",k:"比喻"},
+ {a:["虽然很累","但","我们","都","笑了"],t:"虽然很累，但我们都笑了。"}]},
+
 {n:"四季篇",e:"🌸",c:"#2fa84f",g:0,
  tip:"写四季要写出「变化」：同一棵树，春天抽芽、夏天浓绿、秋天金黄、冬天披雪。",
- tpl:"___来了，___，___。",
+ tpls:[
+  ["___来了，___，___。","春天来了，柳条绿了，燕子也回来了。"],
+  ["一到___，___就___。","一到夏天，院子里的蝉就唱个不停。"],
+  ["___的___，像___。","秋天的稻田，像一片金色的海。"]],
+ hints:["选一个季节，想想它最明显的变化。","写两样东西：一种植物、一种声音。","用上颜色词，画面会更亮。"],
  pool:["全神贯注","慈眉善目","手舞足蹈","一丝不苟","层峦叠嶂","波光粼粼","锲而不舍","张牙舞爪","语重心长","目不转睛"],
  w:[
  ["春暖花开","春天气候温暖，花朵盛开","___的季节，小朋友们来到公园玩耍。"],
@@ -199,8 +271,12 @@ const U=[
 
 {n:"神态篇",e:"😄",c:"#f2a900",g:0,
  tip:"写心情别只写“我很高兴”，要写眼睛、嘴角、脚步——表情和动作会替你说心情。",
- tpl:"他___得___，像___。",
- pool:["波光粼粼","层峦叠嶂","硕果累累","姹紫嫣红","山清水秀","张牙舞爪","憨态可掬","循循善诱","白雪皑皑","锣鼓喧天"],
+ tpls:[
+  ["他___得___，像___。","他紧张得手心冒汗，像刚从水里捞出来。"],
+  ["___听见___，___一下子___。","妹妹听见开门声，眼睛一下子亮了。"],
+  ["___没有___，只是___。","他没有说话，只是把拳头攥得紧紧的。"]],
+ hints:["先想一种心情：高兴、紧张、委屈，还是生气？","不要直接写心情词，写眼睛、嘴角或手在做什么。","最后加一句别人的反应，会更真实。"],
+ pool:["波光粼粼","层峦叠嶂","硕果累累","姹紫嫣红","山清水秀","张牙舞爪","憨态可掬","循循善诱","白雪皑皑","引人入胜"],
  w:[
  ["喜笑颜开","高兴得笑逐颜开","看到成绩单上的满分，妈妈___。"],
  ["垂头丧气","情绪低落，无精打采","比赛输了，他___地低着头。"],
@@ -220,7 +296,11 @@ const U=[
 
 {n:"动物篇",e:"🐾",c:"#8b5e3c",g:0,
  tip:"写小动物要写「招牌动作」：小猫怎样伸懒腰，小狗怎样摇尾巴，一写就活了。",
- tpl:"___（小动物）___，好像___。",
+ tpls:[
+  ["___（小动物）___，好像___。","小花猫伸了个懒腰，好像在说：“别吵我。”"],
+  ["它___，一会儿___，一会儿___。","它一刻也不闲着，一会儿追蝴蝶，一会儿刨土。"],
+  ["我最喜欢___，因为它___。","我最喜欢那只小狗，因为它总在门口等我回家。"]],
+ hints:["先选一只你熟悉的小动物。","写它的招牌动作：怎么跑、怎么吃、怎么睡。","加一个拟人句，让它像人一样有心思。"],
  pool:["拾金不昧","愁眉苦脸","语重心长","一丝不苟","全神贯注","波光粼粼","姹紫嫣红","秋高气爽","锲而不舍","循循善诱"],
  w:[
  ["活蹦乱跳","活泼，充满生气","刚出生的小狗___，一刻也不肯停。"],
@@ -240,8 +320,12 @@ const U=[
 
 {n:"议论篇",e:"💡",c:"#e08a00",g:1,
  tip:"讲道理要有「证据」：一个事例、一句名言，胜过一堆空话。",
- tpl:"___不是___，而是___。",
- pool:["波光粼粼","鸟语花香","张灯结彩","手舞足蹈","憨态可掬","白雪皑皑","眉飞色舞","蹑手蹑脚","万紫千红","硕果累累"],
+ tpls:[
+  ["___不是___，而是___。","勇敢不是不害怕，而是害怕时仍然往前走。"],
+  ["有人说___，我却觉得___。","有人说失败很可怕，我却觉得失败是最好的老师。"],
+  ["___，所以___。","坚持每天读十页书，所以我一学期读完了六本。"]],
+ hints:["先用一句话亮出你的观点。","再举一个例子或一句名言当证据。","最后用“所以／因此”收一句。"],
+ pool:["波光粼粼","鸟语花香","引人入胜","手舞足蹈","憨态可掬","白雪皑皑","眉飞色舞","蹑手蹑脚","万紫千红","硕果累累"],
  w:[
  ["锲而不舍","坚持不懈，不放弃","科学家___地探索，终于有了新的发现。"],
  ["未雨绸缪","事先做好准备","台风将至，我们要___，提前加固门窗。"],
@@ -260,8 +344,12 @@ const U=[
 
 {n:"抒情篇",e:"💗",c:"#c2417f",g:1,
  tip:"抒情要「真」：写自己亲身经历的小事，情感才站得住脚。",
- tpl:"那一刻，我___，因为___。",
- pool:["层峦叠嶂","锣鼓喧天","津津有味","蹑手蹑脚","书声琅琅","硕果累累","张牙舞爪","争先恐后","目不暇接","秋高气爽"],
+ tpls:[
+  ["那一刻，我___，因为___。","那一刻，我鼻子一酸，因为看见妈妈的手裂开了口子。"],
+  ["___，我却___。","大家都笑了，我却怎么也笑不出来。"],
+  ["___像___，一直___。","那份感动像一颗种子，一直埋在我心里。"]],
+ hints:["先想一件真实的小事，越小越好。","写你当时的一个身体反应：鼻子酸、心跳快、说不出话。","最后写这件事留给你的东西。"],
+ pool:["层峦叠嶂","引人入胜","津津有味","蹑手蹑脚","书声琅琅","硕果累累","张牙舞爪","争先恐后","目不暇接","秋高气爽"],
  w:[
  ["感慨万千","心中感触很多","重回母校，我不禁___。"],
  ["热泪盈眶","眼泪充满眼眶，形容非常感动","听到国歌奏响，我___。"],
@@ -280,7 +368,11 @@ const U=[
 
 {n:"意境篇",e:"🏞️",c:"#0f9d9a",g:1,
  tip:"好意境常常「动静结合」：写一写风声、水声、鸟声，画面就有了呼吸。",
- tpl:"___，___，像___。",
+ tpls:[
+  ["___，___，像___。","月光落在水面上，一闪一闪，像撒了一把碎银。"],
+  ["___的时候，___。","起雾的时候，整条江都看不见了，只听见船桨的声音。"],
+  ["___，让我想起___。","雨打芭蕉的声音，让我想起外婆家的小院。"]],
+ hints:["先写一个安静的画面。","加上声音：风声、水声、鸟声。","最后写它让你想到什么。"],
  pool:["兴高采烈","一丝不苟","争先恐后","循循善诱","语重心长","手舞足蹈","目瞪口呆","助人为乐","拾金不昧","望子成龙"],
  w:[
  ["万籁俱寂","周围一切声音都静止了","深夜里，四周___，只听见钟声。"],
@@ -300,8 +392,12 @@ const U=[
 
 {n:"亲情篇",e:"👨‍👩‍👧",c:"#d94f70",g:1,
  tip:"写亲情，写「小事」：一碗热汤、一句叮嘱、一次默默的等待。",
- tpl:"___的爱，是___，也是___。",
- pool:["层峦叠嶂","秋高气爽","锲而不舍","举足轻重","张灯结彩","锣鼓喧天","蹑手蹑脚","万紫千红","余音绕梁","波光粼粼"],
+ tpls:[
+  ["___的爱，是___，也是___。","妈妈的爱，是清晨的一碗热粥，也是深夜留的一盏灯。"],
+  ["___从不说___，却总是___。","爸爸从不说“我爱你”，却总是把伞往我这边偏。"],
+  ["___的那一刻，我才懂___。","看见妈妈蹲在地上给我系鞋带的那一刻，我才懂她的辛苦。"]],
+ hints:["写一件家里的小事：一碗饭、一把伞、一次等待。","写一个细节：手、背影、白发。","最后写你心里的那句话。"],
+ pool:["层峦叠嶂","秋高气爽","鸦雀无声","举足轻重","引人入胜","争先恐后","蹑手蹑脚","万紫千红","余音绕梁","波光粼粼"],
  w:[
  ["舐犊情深","父母对子女的慈爱","看着熟睡的孩子，母亲的眼里满是___。"],
  ["嘘寒问暖","关切地询问生活冷暖","每次回家，奶奶总是___。"],
@@ -320,7 +416,11 @@ const U=[
 
 {n:"校园篇",e:"🏫",c:"#4a6fd8",g:1,
  tip:"写校园要抓「声音」：铃声、读书声、笑声、加油声，都是好素材。",
- tpl:"___一响，___立刻___。",
+ tpls:[
+  ["___一响，___立刻___。","上课铃一响，教室立刻安静下来。"],
+  ["___上，___，___。","操场上，同学们跑着、跳着，笑声一片。"],
+  ["那天___，我们___。","那天轮到我们班值日，我们把教室擦得发亮。"]],
+ hints:["先写一个校园里的声音。","写同学们的动作，别只写“很开心”。","最后写这件事让你记住了什么。"],
  pool:["白雪皑皑","波光粼粼","愁眉苦脸","语重心长","余音绕梁","硕果累累","姹紫嫣红","津津有味","望子成龙","舐犊情深"],
  w:[
  ["书声琅琅","读书声清亮响亮","清晨的校园___，充满朝气。"],
@@ -341,8 +441,12 @@ const U=[
 
 {n:"品格篇",e:"🌟",c:"#b8860b",g:1,
  tip:"写品格，用「选择」来证明：面对诱惑怎么做，面对困难怎么选。",
- tpl:"真正的___，不是___，而是___。",
- pool:["秋高气爽","鸟语花香","手舞足蹈","张牙舞爪","波光粼粼","姹紫嫣红","津津有味","蹑手蹑脚","白雪皑皑","锣鼓喧天"],
+ tpls:[
+  ["真正的___，不是___，而是___。","真正的勇敢，不是不害怕，而是害怕时仍然向前。"],
+  ["他___，却___。","他捡到钱包，却站在原地等了半个小时。"],
+  ["那件事让我明白，___比___更重要。","那件事让我明白，诚实比满分更重要。"]],
+ hints:["先想一个“选择”的瞬间。","写他做了什么，不要写“他很诚实”。","最后用一句话说出道理。"],
+ pool:["秋高气爽","鸟语花香","手舞足蹈","张牙舞爪","波光粼粼","姹紫嫣红","津津有味","蹑手蹑脚","白雪皑皑","引人入胜"],
  w:[
  ["拾金不昧","拾到东西不据为己有","他___，把钱包交给了警察。"],
  ["助人为乐","以帮助别人为快乐","她总是___，谁有困难都愿意找她。"],
@@ -357,90 +461,10 @@ const U=[
  {a:["善良","像","一粒种子","终会","开出花来"],t:"善良像一粒种子，终会开出花来。",k:"比喻"},
  {a:["说到","就要","做到","这是","我的原则"],t:"说到就要做到，这是我的原则。"},
  {a:["真正的勇敢","不是","不害怕","而是","害怕时","仍然向前"],t:"真正的勇敢，不是不害怕，而是害怕时仍然向前。"},
- {a:["难道","诚信","不比一时的利益","更重要吗"],t:"难道诚信不比一时的利益更重要吗？",k:"反问"}]},
-
-{n:"哲思篇",e:"🧭",c:"#6a4fc7",g:2,
- tip:"哲思句要有「转折」：先承认常理，再翻出新意，句子就有力量。",
- tpl:"___，不是___，而是___。",
- pool:["波光粼粼","鸟语花香","手舞足蹈","喜笑颜开","憨态可掬","蹑手蹑脚","张灯结彩","万紫千红","津津有味","语重心长"],
- w:[
- ["沧海桑田","世事变化巨大","几十年过去，村庄已是___。"],
- ["百折不挠","屡遭挫折也不退缩","无论遇到多少困难，他都___。"],
- ["破釜沉舟","下定决心，不留退路","他___，决心拼死一搏。"],
- ["如履薄冰","做事极其小心谨慎","刚入职的他___，生怕出错。"],
- ["水到渠成","条件成熟，事情自然成功","只要基础扎实，成绩自然___。"],
- ["随遇而安","能适应各种环境并感到满足","他性格豁达，无论到哪里都能___。"],
- ["见微知著","看到细微迹象就能知道发展趋势","智者___，从一片落叶看见了秋天。"],
- ["物极必反","事物发展到极点就会向相反方向转化","___，做事要留有余地。"]],
- s:[
- {a:["海纳百川","有容乃大"],t:"海纳百川，有容乃大。",k:"引用",tr:"大海容纳千百条江河，因为包容才显得宽广。"},
- {a:["不积跬步","无以至千里"],t:"不积跬步，无以至千里。",k:"引用",tr:"不一步一步地积累，就无法走到千里之外。"},
- {a:["生命的","意义","在于","不断地","攀登"],t:"生命的意义，在于不断地攀登。"},
- {a:["所有的","努力","都","不会白费"],t:"所有的努力都不会白费。"},
- {a:["一花独放","不是春","百花齐放","春满园"],t:"一花独放不是春，百花齐放春满园。",k:"引用",tr:"一朵花开不算春天，百花齐放才是满园春色。"}]},
-
-{n:"成长篇",e:"🌱",c:"#3b8f6a",g:2,
- tip:"写成长要有「前后对比」：从前的我什么样，现在的我什么样。",
- tpl:"那一次，我___，才明白___。",
- pool:["波光粼粼","姹紫嫣红","锣鼓喧天","张灯结彩","津津有味","憨态可掬","秋高气爽","书声琅琅","舐犊情深","余音绕梁"],
- w:[
- ["蜕变","发生质的变化","三年时光，他完成了从懵懂到成熟的___。"],
- ["磨砺","磨练、锻炼","挫折是最好的___。"],
- ["迷茫","神情恍惚，不知所措","那段时间，我对未来感到___。"],
- ["顿悟","忽然领悟","那一刻，我___：原来坚持本身就是意义。"],
- ["沉淀","积累、积淀","读书让思想慢慢___。"],
- ["底气","信心和力量","扎实的准备给了我站上讲台的___。"],
- ["迎难而上","面对困难勇敢前进","他没有退缩，而是___。"],
- ["脱胎换骨","比喻彻底改变","半年的训练，让他___。"]],
- s:[
- {a:["那一天","我","突然","长大了"],t:"那一天，我突然长大了。"},
- {a:["跌倒了","就","自己","爬起来"],t:"跌倒了，就自己爬起来。"},
- {a:["每一次","失败","都是","一次","馈赠"],t:"每一次失败，都是一次馈赠。"},
- {a:["成长","就是","和","过去的自己","告别"],t:"成长，就是和过去的自己告别。"},
- {a:["那些打不倒我的","终将","使我","更强大"],t:"那些打不倒我的，终将使我更强大。"}]},
-
-{n:"读书篇",e:"📚",c:"#2b6cb0",g:2,
- tip:"引用名言要「合身」：句子和观点对得上，才叫用得好。",
- tpl:"读书让我___，也让我___。",
- pool:["波光粼粼","锣鼓喧天","舐犊情深","愁眉苦脸","张牙舞爪","硕果累累","蹑手蹑脚","姹紫嫣红","兴高采烈","秋高气爽"],
- w:[
- ["博览群书","广泛地阅读各种书籍","他___，讲起历史典故如数家珍。"],
- ["手不释卷","书本不离手，形容勤奋好学","爷爷___，到了晚年仍每天读书。"],
- ["融会贯通","把各方面知识融合起来，得到全面透彻的理解","学习要___，不能死记硬背。"],
- ["字斟句酌","对每一字每一句都仔细推敲","这篇文章他___，改了七八遍。"],
- ["开卷有益","读书总有好处","___，多读一本就多一分收获。"],
- ["学而不厌","学习永不满足","他___，八十岁还在学外语。"],
- ["潜移默化","不知不觉中受到影响","好书的熏陶是___的。"],
- ["腹有诗书","比喻人富有学识","___气自华，读书让人从容。"]],
- s:[
- {a:["书籍","是","人类","进步的","阶梯"],t:"书籍是人类进步的阶梯。"},
- {a:["一本好书","就是","一位","良师益友"],t:"一本好书就是一位良师益友。"},
- {a:["读书","让","我的世界","变得","辽阔"],t:"读书让我的世界变得辽阔。"},
- {a:["在书里","我","遇见了","更好的自己"],t:"在书里，我遇见了更好的自己。"},
- {a:["书页翻动的声音","像","春雨沙沙"],t:"书页翻动的声音，像春雨沙沙。",k:"比喻"}]},
-
-{n:"节日篇",e:"🎊",c:"#e05c2b",g:2,
- tip:"写节日要写「味道」和「颜色」：红灯笼、年夜饭的香气、鞭炮的火光。",
- tpl:"___的夜晚，___，___。",
- pool:["波光粼粼","层峦叠嶂","愁眉苦脸","全神贯注","一丝不苟","蹑手蹑脚","秋高气爽","书声琅琅","活蹦乱跳","锲而不舍"],
- w:[
- ["张灯结彩","挂上灯笼，系上彩绸","春节的街上___，喜气洋洋。"],
- ["喜气洋洋","充满喜悦的样子","家家户户___，迎接新年。"],
- ["阖家团圆","全家团聚","中秋之夜，___是最幸福的事。"],
- ["走亲访友","到亲戚朋友家拜访","春节期间，人们___，互道祝福。"],
- ["锣鼓喧天","锣鼓声震天响","庙会上___，热闹非凡。"],
- ["灯火辉煌","灯光灿烂","元宵节的夜晚，街上___。"],
- ["普天同庆","天下人共同庆祝","国庆佳节，举国上下___，一片欢腾。"],
- ["辞旧迎新","告别旧岁，迎接新年","除夕之夜，我们___。"]],
- s:[
- {a:["红红的灯笼","挂满了","大街小巷"],t:"红红的灯笼挂满了大街小巷。"},
- {a:["一家人","围坐在一起","吃","年夜饭"],t:"一家人围坐在一起吃年夜饭。"},
- {a:["烟花","在夜空中","绽放","像","朵朵鲜花"],t:"烟花在夜空中绽放，像朵朵鲜花。",k:"比喻"},
- {a:["祝福的话语","温暖了","整个冬天"],t:"祝福的话语温暖了整个冬天。"},
- {a:["除夕的钟声","敲响了","新年的第一声问候"],t:"除夕的钟声，敲响了新年的第一声问候。"}]}
+ {a:["难道","诚信","不比一时的利益","更重要吗"],t:"难道诚信不比一时的利益更重要吗？",k:"反问"}]}
 ];
 U.sort((a,b)=>a.g-b.g);
-const GR=["小学低中年级","小学高年级","初中"];
+const GR=["小学低中年级","小学高年级"];
 
 const QUOTES=[
 ["读书破万卷，下笔如有神。","杜甫"],
@@ -469,6 +493,13 @@ const QUOTES=[
 ["冰冻三尺，非一日之寒。","民间谚语"]
 ];
 
+/* ============================================================
+   作文欣赏：20 篇一二年级范文（来自《1-2年级优秀作文范例20篇》）
+   ============================================================ */
+const ESSAYS=[{"t":"我的妈妈","k":"写人","ps":["我的妈妈个子不高，头发短短的，笑起来有一颗小虎牙。她走路很快，说话也很快，像一阵风。","每天早上，她一边给我梳头，一边说：“今天要开心。”她的手指在我头上一梳一梳，很轻，像小雨点落在头发上。","有一次我发烧，半夜醒来，看见她坐在床边的小凳上，眼睛红红的。她摸摸我的额头，说：“退了，退了。”","我喜欢妈妈，因为她的手会梳头，也会在我害怕的时候，一直握着我的手。"],"n":["没有一句“我爱妈妈”，却句句都在说爱。手指“像小雨点”，是自己看见的比喻。","写人先写一个动作，再写这个动作给人的感觉。"]},{"t":"我的好朋友","k":"写人","ps":["我的好朋友叫朵朵，她比我矮半个头，扎两个小辫子，一跑起来辫子就在后面蹦。","我们最爱玩“石头剪刀布”。她每次都先出石头，我就出布，她输了不服气，说：“再来一次，再来一次。”","上星期我忘带橡皮，她把她的橡皮掰成两半，一半给我。她说：“这样我们就有一样的橡皮了。”","我把那半块橡皮放在铅笔盒最上面，一直舍不得用。"],"n":["一件小事就把“好朋友”写明白了，掰橡皮这个动作比十句“我们很好”都有力。","写朋友，只挑一件他为你做的小事。"]},{"t":"下雨了","k":"写景","ps":["下雨了。","雨点先是一滴两滴，落在窗台上，啪啪地响。后来就下大了，哗哗哗，像有人在楼上倒豆子。","我趴在窗边看，路上的伞像一朵朵小花，慢慢地移过去。屋檐下挂了一排水珠，一颗掉下来，又长出一颗。","妈妈喊我别站太近，会淋湿。我说：“我不是淋湿，我是在看雨。”"],"n":["有声音（啪啪、哗哗），有比喻（倒豆子、小花），最后一句还有一点小机灵。","写雨这类景，把耳朵也用上——“听见了什么”往往比“看见了什么”更好写。"]},{"t":"球球","k":"写动物","ps":["我家有一只小狗，叫球球。它全身是黄的，只有四只脚是白的，像穿了袜子。","我一回家，它就从沙发后面冲出来，绕着我的腿转圈，尾巴甩得像小风扇，把拖鞋都扫歪了。","它最爱吃西瓜。我把西瓜皮放在地上，它先闻一闻，再用舌头舔，舔得满脸都是。","有一次它舔得太认真，整张脸埋进西瓜皮里，抬起头来时，鼻子上还挂着一粒黑瓜子。"],"n":["全身写黄、脚写白，“像穿了袜子”，一句话就把小狗记住了；最后那个黑瓜子是全文最好笑的一笔。","写动物，一定给它留一个“出丑”的瞬间。"]},{"t":"春天来了","k":"写景","ps":["春天来了。","柳树的芽先冒出来，是浅绿色的，小小的，一串一串，像刚洗过的小铃铛。风一吹，它们就在枝头上晃。","小草从土里钻出来，有的直着身子，有的弯着腰，还有的只露出一点点尖。","我在花坛边蹲了很久，看见一只小蚂蚁从草叶下爬出来，绕着一块饼干渣转了三圈，才把它举起来，慢慢走回家。"],"n":["不写“春天很美”，只写芽、草、蚂蚁各自在做什么，画面自己就出来了。","写春天，选三个很小的东西各写一句，不要写一大片。"]},{"t":"第一次洗碗","k":"写事","ps":["晚饭后，我说：“今天我洗碗。”","我把碗放进水池，挤了一点洗洁精。泡沫越来越多，像小雪山。我拿抹布擦碗，碗变得滑滑的，抓不住，“咚”的一声掉进水里，水花溅到我的衣服上。","妈妈在旁边看着，笑了，说：“不要紧，慢一点。”","最后我把碗一个个放在架子上，摆得整整齐齐。爸爸走过来看了看，说：“真亮。”我心里也亮亮的。"],"n":["中间那声“咚”就是波折，摔了碗才像真的第一次。结尾“心里也亮亮的”借了爸爸的“亮”，很聪明。","写第一次做一件事，一定要安排一个小意外。"]},{"t":"放风筝","k":"写事","ps":["星期天，爸爸带我去公园放风筝。","风筝是一只大蝴蝶，翅膀上有黑色的圆点。爸爸拿着线跑了几步，风一来，风筝就往上飞，越飞越高，飞到树顶上，只剩一个小点。","忽然风小了，风筝摇摇晃晃往下掉。我着急地喊：“快跑！”爸爸就跑，线在他手里一松一紧。风筝慢慢又升起来。","我仰着头看，脖子都酸了，可还是舍不得低头。"],"n":["有升、有落、又升起来，一条线走完一个故事；最后“脖子酸了”比“我很开心”更真实。","写事要写出“先怎样、后来怎样、最后怎样”。"]},{"t":"爷爷的菜园","k":"写景","ps":["爷爷在屋后有一小块菜园。","他每天早上都去，手里拿一把小锄头，头上戴一顶草帽。菜园里有青椒、番茄，还有一排排小葱，绿得像用尺子画过一样直。","有一棵番茄长得比我高，爷爷给它插了一根棍子，用布条绑住。他说：“它会爬，要扶着。”","我最喜欢摘小番茄，洗完放进嘴里，一咬，酸得我眯起眼睛，可是过一会儿又想再吃一个。"],"n":["小葱“像用尺子画过一样直”，是真正的观察；爷爷那句“要扶着”，一句话写出了一个疼菜的人。","写景里放一个人、一句话，景就活了。"]},{"t":"我的铅笔盒","k":"状物","ps":["我有一个蓝色的铅笔盒，上面画着一只小恐龙。","铅笔盒分两层。上层放铅笔和橡皮，下层放尺子。橡皮是白色的，用久了会变小，边角上有一个小缺口，那是我擦错字擦出来的。","铅笔盒的拉链不太好了，每次拉都要轻轻歪一下才拉得动。我拉的时候会小声说：“乖一点，乖一点。”","它陪了我两年，还很结实。"],"n":["不写“我很喜欢它”，写“拉链要歪一下”“小声说乖一点”，喜欢就藏不住了。","写一样东西，去写它身上那个“用旧了的毛病”。"]},{"t":"小猫喝水","k":"写动物","ps":["楼下的小猫在喝水。","它先蹲下来，把头低下去，伸出粉红色的舌头，轻轻一勾，水就沾在舌头上。它喝一口，抬一下头，眼睛半闭着，喉咙里发出咕噜咕噜的声音。","喝完了，它抬起前爪，在脸上抹了抹，从眼睛抹到耳朵，抹了三四下，像在洗脸。","然后它抖了抖身子，慢悠悠地走开，尾巴竖得像一根小旗杆。"],"n":["一个“勾”字就写活了猫的舌头；动作一个接一个，像慢镜头。","写动物，把一个动作放慢，拆成四五下。"]},{"t":"下雪了","k":"写景","ps":["昨天夜里下雪了。","早上我一开窗，外面全白了。屋顶白，树白，连垃圾桶的盖子上也白了一层。雪还在轻轻飘，落在窗户上，一会儿就变成一颗小水珠。","我伸出手去接，雪落在手心里，凉凉的，像一根很轻的羽毛，还没看清就化了。","我和哥哥在楼下堆了一个雪人，用两颗黑豆做眼睛，用胡萝卜做鼻子。它没有嘴，可我觉得它在笑。"],"n":["“连垃圾桶的盖子上也白了一层”，这句把“全白了”写实了；结尾雪人没嘴却在笑，是孩子的眼睛。","写“全都白了”，就去找一个最不起眼的东西来举例。"]},{"t":"我给奶奶捶背","k":"写事","ps":["奶奶说她的背有点酸。","我让她坐在小椅子上，我站在她身后，两个拳头轻轻地捶。捶的时候有咚咚的声音，我觉得很好听。","奶奶说：“轻一点，轻一点。”我就把拳头放轻。她又说：“再往上一点。”我就往上面挪一点。","捶了一会儿，我的手有点酸了。奶奶回过头，笑着说：“好了，好了，舒服了。”","我高兴得在她的背上又轻轻拍了一下。"],"n":["奶奶两次“指挥”，我两次“照做”，一老一小就出来了；自己手酸这个细节也没有藏。","写对话就用原话，短句短句地写，别加工。"]},{"t":"运动会那天","k":"写事","ps":["学校开运动会。","我参加的是接力跑。我站在跑道上，心一直跳，跳得像有人在里面敲小鼓。","前面的同学跑过来了，把棒子递给我。我一把抓住就跑。风在耳边呼呼地响，我看见好多人在喊，可是听不清喊什么。","跑完我才知道，我们班得了第二名。我喘着气，说不出话，只对着同学一直点头。"],"n":["心跳“像有人在里面敲小鼓”，怕写得具体；“听不清喊什么”，是跑道上的真感觉。","写紧张的场面，只写身体的感觉，不写“我很紧张”。"]},{"t":"我的老师","k":"写人","ps":["我的语文老师姓王，她的头发总是盘在后面，用一个黑色的卡子卡住。","她讲课的时候会走来走去，讲到高兴的地方，眼睛就亮亮的，声音也变大。","有一次我写的字很乱，她没有批评我，只在本子上画了一个小太阳，旁边写：“慢一点，字会更好看。”","从那以后，我写字的时候，会想起那个小太阳。"],"n":["一个小太阳，既是老师的办法，也是全文的“结”；没有一句夸奖，老师就立起来了。","写老师，找一个只属于她的记号（发型、口头禅、一支笔）。"]},{"t":"秋天的树叶","k":"写景","ps":["秋天到了，树叶一片一片往下掉。","有的叶子是黄的，有的是红的，还有黄里带一点绿。它们落在地上，铺了薄薄一层，走上去有沙沙的声音。","我捡了一片最大的梧桐叶，比我的手还大。它的边上有尖尖的角，我举起来对着太阳，光就从叶子的缝隙里漏下来，一点一点的。","我把这片叶子夹在书里，想留到冬天再拿出来看。"],"n":["写了颜色、声音，还写了“举起来对着太阳”这个动作，一片叶子被看透了。","写一样东西，换三个角度：看、听、拿在手里。"]},{"t":"我学会了系鞋带","k":"写事","ps":["我一直不会系鞋带，鞋带松了就叫妈妈。","后来妈妈教我：先交叉，绕一个圈，把另一个头从中间穿过去，再拉紧。我学了好几次，第一次拉得太用力，整个结散了。","我坐在门口，一边念“交叉、绕圈、穿过去、拉一拉”，一边练。练了七八次，忽然就打好了。","那一下我特别高兴，站起来在客厅走了两圈，故意把鞋带露在外面给大家看。"],"n":["口诀一样的一串词是这篇的特色；“故意把鞋带露出来”把这个小得意写得人人都会心。","写“学会了”，一定要写出成功那一下之后的反应。"]},{"t":"过生日","k":"写事","ps":["昨天是我七岁的生日。","妈妈买了一个小蛋糕，上面插着七根蜡烛。灯关掉以后，蜡烛的光在妈妈脸上晃来晃去。","大家一起唱生日歌，我闭上眼睛许愿。我许的愿不能说，说了就不灵了。","吹蜡烛的时候，我一次没吹完，还剩两根。大家都笑，我也笑，又用力吹了一次，这回全灭了。"],"n":["“说了就不灵了”是孩子才有的逻辑；蜡烛没一次吹灭，比“我很幸福”更有意思。","写开心的事，留一个不太完美的小细节。"]},{"t":"我家的小阳台","k":"写景","ps":["我家的阳台很小，只站得下三四个人。","阳台上放了三盆花，一盆是吊兰，叶子软软地垂下来，快碰到地了。妈妈说它喝了很多水。","下雨的时候，雨点打在阳台的铁栏杆上，会唱歌：叮、叮、叮。我就搬个小板凳坐在门口听。","太阳好的时候，我把湿毛巾挂在阳台上。风一吹，它就在那儿摆来摆去，像在招手。"],"n":["小地方写出三样东西——花、雨声、毛巾；“喝了很多水”“像在招手”，都是孩子的话。","没有大风景可写，就写一个最小的角落，写满三件事。"]},{"t":"一棵大树","k":"写景","ps":["我家楼下有一棵大树，我抱不过来。","它的树皮上有很深的沟，一条一条，摸上去粗糙。树上有几个洞，我猜是小虫子的家。","夏天的时候，树下面很凉。奶奶搬了椅子坐那儿，我在旁边跳格子。太阳在树叶上面，我们在树叶的影子里。","有一片叶子掉在我头上，奶奶帮我拿下来，说：“大树在和你说悄悄话。”"],"n":["“我抱不过来”一句写了粗；“太阳在树叶上面，我们在树叶的影子里”，两句对照，凉意就出来了。","写一样东西的大小，就用身体去比一比。"]},{"t":"我自己","k":"写人","ps":["我叫小明，今年七岁，上二年级。","我的个子在班里不算高，坐在第三排。我有一双大眼睛，笑起来眼睛会变小。我最喜欢画画，画得最多的是恐龙。","我有一个毛病：写字的时候，写着写着，头就歪到左边去了。妈妈每次都帮我把头扶正。","我想当一个画恐龙的人，也想当一个能把自己照顾好的人。"],"n":["写自己敢写“毛病”，比只写优点可爱得多；两个“想当”，一个是梦想，一个是长大。","写自己，就写一个别人不知道的小习惯。"]}];
+const ETAGS=["全部","写人","写景","写事","写动物","状物"];
+let ETAG="全部";
+
 /* 词义索引 & 好句索引 */
 const WM={};
 U.forEach(u=>u.w.forEach(w=>{WM[w[0]]=w[1]}));
@@ -481,19 +512,20 @@ const T_FAV=0,T_MINE=1,T_ALL=2,T_UNIT=3,T_QUOTE=U.length+3;
 /* ============================================================
    状态与存储
    ============================================================ */
-const KEY="zwt3";
-const fresh=()=>({v:3,xp:0,done:[],stars:{},stat:{},fav:[],mine:[],streak:0,last:"",mute:0,right:0,wrong:0});
+const KEY="zwt4";
+const fresh=()=>({v:4,xp:0,done:[],stars:{},stat:{},fav:[],mine:[],streak:0,last:"",mute:0,right:0,wrong:0});
 let S=fresh();
 let SAVE_OK=true;
 try{localStorage.setItem("zwt_probe","1");localStorage.removeItem("zwt_probe")}catch(e){SAVE_OK=false}
+let MIG=0;
 try{
  const raw=localStorage.getItem(KEY);
  if(raw){const o=JSON.parse(raw);if(o&&typeof o==="object")Object.assign(S,o)}
  else{
-  const old=JSON.parse(localStorage.getItem("zwt2")||"null");
-  if(old&&typeof old==="object"){
-   S.xp=old.xp||0;S.streak=old.streak||0;S.last=old.last||"";S.mute=old.mute||0;
-   if(Array.isArray(old.done))S.done=old.done;
+  const oldRaw=localStorage.getItem("zwt3")||localStorage.getItem("zwt2");
+  if(oldRaw){
+   const o=JSON.parse(oldRaw);
+   if(o&&typeof o==="object"){Object.assign(S,o);S.v=4;MIG=1;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
   }
  }
 }catch(e){}
@@ -502,7 +534,7 @@ if(!S.stars||typeof S.stars!=="object")S.stars={};
 if(!S.stat||typeof S.stat!=="object")S.stat={};
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));SAVE_OK=true}catch(e){SAVE_OK=false}};
 
-let L={},LT=T_ALL,EDU=0,LQ="";
+let L={},LT=T_ALL,LQ="",ED={u:0,ti:0,text:""};
 
 /* ============================================================
    音效 / 朗读 / 工具
@@ -519,6 +551,22 @@ const sh=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
 const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const starsOf=i=>Math.max(0,Math.min(3,S.stars[i]||0));
 const starStr=n=>"★".repeat(n)+"☆".repeat(3-n);
+
+/* ===== 页面栈：浏览器/安卓返回键按层级后退，不再直接退出应用 ===== */
+let PSTACK=[],CUR=()=>home(),SUP=0;
+const rec=f=>{if(!SUP){PSTACK.push(CUR);try{history.pushState({d:PSTACK.length},"")}catch(e){}}CUR=f};
+const goHome=()=>{PSTACK=[];CUR=()=>home();try{history.replaceState({d:0},"")}catch(e){}home()};
+const goLib=t=>{rec(()=>lib(t));lib(t)};
+const goLevel=i=>{rec(()=>start(i));start(i)};
+const goReview=w=>{rec(()=>review(w));review(w)};
+const goRetry=()=>{rec(()=>retryWrong());retryWrong()};
+const goEditor=u=>{rec(()=>editor(u));editor(u)};
+const goWrite=()=>{rec(()=>writeNow());writeNow()};
+const goEssays=()=>{rec(()=>essays());essays()};
+const goEssay=i=>{rec(()=>essList());essay(i)};
+const goReport=()=>{rec(()=>report());report()};
+const goBack=()=>{if(!PSTACK.length)return goHome();SUP++;const f=PSTACK.pop();try{f()}catch(e){home()}SUP=0};
+window.addEventListener("popstate",()=>{if(!PSTACK.length)return;SUP++;const f=PSTACK.pop();try{f()}catch(e){home()}SUP=0});
 
 /* 学习统计 */
 function mark(id,ok){
@@ -599,22 +647,30 @@ function home(){
  let h=`<div class=hd><b>📖 作文通</b><span class=stat>🔥${S.streak}　⭐${S.xp}　<button class=sp onclick="mute()" aria-label="声音开关">${S.mute?"🔇":"🔊"}</button></span></div>
  <p class=sub>每天积累好词好句，作文越写越漂亮</p>`;
  if(!SAVE_OK)h+=`<div class=tip style="background:var(--rl);margin:0 0 12px">⚠️ 当前浏览器无法保存进度（可能是隐私模式），关闭页面后记录会丢失。</div>`;
+ if(MIG)h+=`<div class=tip style="margin:0 0 12px">✅ 已从旧版本自动迁移学习进度，关卡、星星和收藏都在。</div>`;
  h+=`<div class=daily><div class=dl>今日好句 · ${U[ds.u].n}${ds.k?" · "+ds.k:""}</div><div class=dt>${ds.t}</div>
- <div class=da><button class=mini id=dsp>🔊 朗读</button><button class=mini onclick="lib(${T_ALL})">📚 好句宝库</button></div></div>
+ <div class=da><button class=mini id=dsp>🔊 朗读</button><button class=mini onclick="goLib(${T_ALL})">📚 好句宝库</button></div></div>
  <div class=quick>
-  <button class=q onclick="review(false)"><b>🔁</b><span>今日复习</span><small>${dueN?dueN+" 题待复习":"暂无待复习"}</small></button>
-  <button class=q onclick="lib(${T_ALL})"><b>📚</b><span>好句宝库</span><small>${ALLS.length} 句</small></button>
-  <button class=q onclick="report()"><b>📊</b><span>学习报告</span><small>看薄弱点</small></button>
+  <button class=q onclick="goReview(false)"><b>🔁</b><span>今日复习</span><small>${dueN?dueN+" 题待复习":"暂无待复习"}</small></button>
+  <button class=q onclick="goWrite()"><b>✍️</b><span>仿写一句</span><small>${S.mine.length} 句作品</small></button>
+  <button class=q onclick="goLib(${T_ALL})"><b>📚</b><span>好句宝库</span><small>${ALLS.length} 句</small></button>
+  <button class=q onclick="goReport()"><b>📊</b><span>学习报告</span><small>看薄弱点</small></button>
  </div>
+ <button class=feature onclick="goEssays()">
+  <span class=fic>📖</span>
+  <span class=ftxt><b>作文欣赏</b><small>${ESSAYS.length} 篇一二年级范文，每篇都有「好在哪 · 学一招」</small></span>
+  <span class=fgo>›</span>
+ </button>
  <div class=prog><div class=bar><i style="width:${100*fin/U.length}%"></i></div><span>已通关 ${fin}/${U.length}</span></div>`;
  U.forEach((u,i)=>{
   if(!i||U[i-1].g!==u.g)h+=`<h3 class=gh>${GR[u.g]}</h3>`;
   const ok=i===0||S.done.includes(i-1)||(i>0&&U[i-1].g!==u.g),dn=S.done.includes(i),st=starsOf(i);
   h+=`<div class="card ${ok?"":"lock"}"><div class=em style="background:${u.c}22">${ok?u.e:"🔒"}</div>
    <div class=in><b>${u.n}</b><small>${u.w.length} 词 · ${u.s.length} 句 · ${dn?`<span class=stars style="font-size:12px;letter-spacing:1px">${starStr(st)}</span>`:"未挑战"}</small></div>
-   ${dn?"<i class=ck2>✓</i>":""}${ok?`<button class=go onclick="start(${i})">${dn?"复习":"开始"}</button>`:""}</div>`});
- h+=`<p class=foot>共 ${U.length} 关 · ${U.reduce((a,u)=>a+u.w.length,0)} 个好词 · ${ALLS.length} 句好句 · ${QUOTES.length} 条名言<br>点「好句宝库」可随时朗读、收藏</p>`;
+   ${dn?"<i class=ck2>✓</i>":""}${ok?`<button class=go onclick="goLevel(${i})">${dn?"复习":"开始"}</button>`:""}</div>`});
+ h+=`<p class=foot>共 ${U.length} 关 · ${U.reduce((a,u)=>a+u.w.length,0)} 个好词 · ${ALLS.length} 句好句 · ${ESSAYS.length} 篇范文<br>点「好句宝库」可随时朗读、收藏</p>`;
  r(h);
+ MIG=0;
  const b=$("#dsp");if(b)b.onclick=()=>speakText(ds.t);
 }
 function dueIds(n){
@@ -649,7 +705,7 @@ function review(onlyWrong){
   ids=sh(pool).slice(0,5);
  }
  if(!ids.length){
-  r(`<div class=end><div class=big>🌱</div><h2>还没有可以复习的内容</h2><p class=sub>先完成一关，学过的好词好句就会进入复习队列。</p><button class=go onclick="home()">去闯关</button></div>`);
+  r(`<div class=end><div class=big>🌱</div><h2>还没有可以复习的内容</h2><p class=sub>先完成一关，学过的好词好句就会进入复习队列。</p><button class=go onclick="goHome()">去闯关</button></div>`);
   return;
  }
  const q=sh(ids.map(id=>qFromId(id)).filter(Boolean));
@@ -668,7 +724,7 @@ function start(i){
 function retryWrong(){
  const ids=(L.wrongIds||[]).slice();
  const q=sh(ids.map(id=>qFromId(id,Math.random()<.5?"mean":"fill")).filter(Boolean));
- if(!q.length)return start(L.u);
+ if(!q.length)return start(typeof L.u==="number"?L.u:0);
  L={u:L.u,q:q,i:0,hp:3,ok:0,total:q.length,wrongIds:[],retry:true};
  show();
 }
@@ -676,7 +732,7 @@ function show(){
  if(window.scrollTo)window.scrollTo(0,0);
  const q=L.q[L.i];L.sel=q.t==="order"?[]:null;L.chk=0;
  const pct=L.total?Math.min(100,100*L.ok/L.total):0;
- let h=`<div class=top><button class=x onclick="home()" aria-label="返回">✕</button><div class=bar><i style="width:${pct}%"></i></div><b class=hp>${L.review?"🔁 ":""}❤️${L.hp}</b></div><div class=body>`;
+ let h=`<div class=top><button class=x onclick="goHome()" aria-label="返回">✕</button><div class=bar><i style="width:${pct}%"></i></div><b class=hp>${L.review?"🔁 ":""}❤️${L.hp}</b></div><div class=body>`;
  if(q.t==="order"){h+=`<h2>把词语排成通顺的句子</h2><div class=ans id=ans></div><div class=pool id=pool></div>`}
  else{
   const title=q.t==="mean"?"这个词是什么意思？":q.t==="fill"?"选词填空":"这句话用了什么修辞手法？";
@@ -704,12 +760,11 @@ function check(){
  const q=L.q[L.i];
  const ok=q.t==="order"?sameOrder(q,L.sel):q.o[L.sel]===q.a;
  L.chk=1;snd(ok?"ok":"bad");
+ if(!q.marked){q.marked=1;mark(q.id,ok)}
  if(ok){
   if(!q.okd){q.okd=1;L.ok++}
-  mark(q.id,true);
  }else{
   L.hp--;
-  mark(q.id,false);
   if(L.wrongIds.indexOf(q.id)<0)L.wrongIds.push(q.id);
   if(!L.q.slice(L.i+1).some(x=>x.id===q.id))L.q.push(q);
  }
@@ -727,15 +782,15 @@ function fail(){
  if(L.review){
   r(`<div class=end><div class=big>💔</div><h2>这组复习先到这里</h2>
   <p class=sub style="margin:6px 0">错题已经记录，下次会优先安排。</p>
-  <button class=go onclick="review(false)">再来一组</button>
-  <button class=ghost onclick="home()">返回首页</button></div>`);
+  <button class=go onclick="goReview(false)">再来一组</button>
+  <button class=ghost onclick="goHome()">返回首页</button></div>`);
   return;
  }
  r(`<div class=end><div class=big>💔</div><h2>红心用完了</h2>
  <p class=sub style="margin:6px 0">别灰心，可以只练刚才做错的 ${n} 道题，也可以从头再来。</p>
- ${n?`<button class=go onclick="retryWrong()">只练错题（${n} 题）</button>`:""}
- <button class=${n?"ghost":"go"} onclick="start(${L.u})">重新挑战</button>
- <button class=ghost onclick="home()">返回目录</button></div>`);
+ ${n?`<button class=go onclick="goRetry()">只练错题（${n} 题）</button>`:""}
+ <button class=${n?"ghost":"go"} onclick="goLevel(${L.u})">重新挑战</button>
+ <button class=ghost onclick="goHome()">返回目录</button></div>`);
 }
 
 /* ============================================================
@@ -766,49 +821,87 @@ function finish(){
  if(L.review){
   r(`<div class=end><div class=big>✅</div><h2>${title}</h2>
    <p class=sub style="margin:6px 0">获得 ⭐${g} 经验　🔥连续 ${S.streak} 天</p>${extra}
-   <button class=go onclick="review(false)">再来一组</button>
-   <button class=ghost onclick="home()">返回首页</button></div>`);
+   <button class=go onclick="goReview(false)">再来一组</button>
+   <button class=ghost onclick="goHome()">返回首页</button></div>`);
   return;
  }
  const u=U[L.u];
  r(`<div class=end><div class=big>${allDone?"🏆":"🎉"}</div><h2>${allDone?"全部通关！":title}</h2>
  <div class=stars>${starStr(stars)}</div>
  <p class=sub style="margin:2px 0">获得 ⭐${g} 经验　🔥连续 ${S.streak} 天${allDone?"　共 "+U.length+" 关":""}</p>
- ${allDone?"<p class=sub>十五个主题全部学完，去好句宝库挑几句，写进你的作文里吧。</p>":"<div class=tip>💡 "+u.tip+"</div>"}
+ ${allDone?"<p class=sub>"+U.length+" 个主题全部学完，去好句宝库挑几句，写进你的作文里吧。</p>":"<div class=tip>💡 "+u.tip+"</div>"}
  <div class=wl><div class=wh>本关好词</div>${u.w.map(w=>`<div><b>${w[0]}</b>　${w[1]}</div>`).join("")}
  <div class=wh style="margin-top:10px">本关好句</div>${u.s.map(s=>`<div>${s.t}${s.k?`　<span class=tag>${s.k}</span>`:""}</div>`).join("")}</div>
- <button class="go alt" onclick="editor(${L.u})">✍️ 仿写一句</button>
- ${L.u+1<U.length?`<button class=go onclick="start(${L.u+1})">进入下一关</button>`:""}
- <button class=ghost onclick="home()">返回目录</button></div>`);
+ <button class="go alt" onclick="goEditor(${L.u})">✍️ 仿写一句</button>
+ ${L.u+1<U.length?`<button class=go onclick="goLevel(${L.u+1})">进入下一关</button>`:""}
+ <button class=ghost onclick="goHome()">返回目录</button></div>`);
 }
 
 /* ============================================================
    仿写（我的句子）
    ============================================================ */
+function writeNow(){
+ const done=S.done.filter(i=>i<U.length);
+ editor(done.length?done[done.length-1]:0);
+}
 function editor(ui){
- EDU=ui;const u=U[ui];
- r(`<div class=top><button class=x onclick="home()" aria-label="返回">✕</button><b class=tt>✍️ 仿写一句</b><span class=stat>${S.mine.length} 句</span></div>
- <div class=tip>${u.n} · 参考句式<br><b>${u.tpl.replace(/___/g,"＿＿")}</b></div>
- <textarea id=ta class=ta placeholder="把横线换成你自己的内容，也可以完全自由发挥。先写下来，不用怕写不好。"></textarea>
- <div class=row><span id=cnt>0 字</span><span>至少 6 个字</span></div>
+ ED={u:(ui==null?0:ui),ti:0,text:""};
+ edRender();
+}
+function pickTpl(i){
+ const ta=$("#ta");if(ta)ED.text=ta.value;
+ ED.ti=i;edRender();
+}
+function insWord(j){
+ const ta=$("#ta");if(!ta)return;
+ const w=U[ED.u].w[j][0];
+ const s=ta.selectionStart==null?ta.value.length:ta.selectionStart;
+ const e=ta.selectionEnd==null?ta.value.length:ta.selectionEnd;
+ ta.value=ta.value.slice(0,s)+w+ta.value.slice(e);
+ ED.text=ta.value;
+ ta.focus();
+ ta.selectionStart=ta.selectionEnd=s+w.length;
+ const c=$("#cnt");if(c)c.textContent=ta.value.length+" 字";
+}
+function rewrite(){edRender()}
+function edRender(){
+ const u=U[ED.u],tpls=u.tpls||[[u.tpl||"___。",""]],tp=tpls[ED.ti]||tpls[0],hints=u.hints||[];
+ r(`<div class=top><button class=x onclick="goHome()" aria-label="返回">✕</button><b class=tt>✍️ 仿写一句</b><span class=stat>${S.mine.length} 句</span></div>
+ <div class=libh>${u.e} ${u.n} · 跟着三步写一句自己的话</div>
+ <div class=tip><b>写作提示</b><ol class=hints>${hints.map(x=>`<li>${x}</li>`).join("")}</ol></div>
+ <h3 class=gh>① 选一个句式</h3>
+ <div class=tpls>${tpls.map((t,i)=>`<button class="tbtn ${i===ED.ti?"on":""}" onclick="pickTpl(${i})">${t[0].replace(/___/g,"＿＿")}</button>`).join("")}</div>
+ <div class=eg><b>示例</b>：${tp[1]}</div>
+ <h3 class=gh>② 可以用这些词 <small>（点一下插入）</small></h3>
+ <div class=pool>${u.w.map((w,j)=>`<button class="chip sm" onclick="insWord(${j})">${w[0]}</button>`).join("")}</div>
+ <h3 class=gh>③ 写下你的句子</h3>
+ <textarea id=ta class=ta placeholder="照着句式，把横线换成你自己的内容。也可以不照句式，自由发挥。"></textarea>
+ <div class=row><span id=cnt>0 字</span><span>至少 8 个字</span></div>
  <div class=warn id=warn></div>
  <button class=go id=sv>保存到「我的句子」</button>
- <button class=ghost onclick="home()">返回首页</button>`);
+ <button class=ghost onclick="goHome()">返回首页</button>`);
  const ta=$("#ta");
- ta.oninput=()=>{$("#cnt").textContent=ta.value.length+" 字"};
+ ta.value=ED.text;
+ const cnt=()=>{const c=$("#cnt");if(c)c.textContent=ta.value.length+" 字"};
+ ta.oninput=()=>{ED.text=ta.value;cnt()};
+ ta.focus();cnt();
+ try{ta.selectionStart=ta.selectionEnd=ta.value.length}catch(e){}
  $("#sv").onclick=()=>{
   const v=ta.value.trim();
-  if(v.length<6){$("#warn").textContent="再多写几个字吧，至少 6 个字～";return}
-  S.mine.unshift({t:v,u:EDU,ts:Date.now()});
+  if(v.length<8){$("#warn").textContent="再多写几个字吧，至少 8 个字～";return}
+  ED.text=v;
+  S.mine.unshift({t:v,u:ED.u,tpl:tp[0],ts:Date.now()});
   if(S.mine.length>300)S.mine.length=300;
   save();snd("ok");
   r(`<div class=end><div class=big>🌟</div><h2>已收进「我的句子」</h2>
    <div class=wl>${esc(v)}</div>
-   <p class=sub>好句子是写出来的，不是背出来的。</p>
-   <button class=go onclick="editor(${EDU})">再写一句</button>
-   <button class=ghost onclick="home()">返回首页</button></div>`);
+   <div class=tip>写完后读一遍：<br>① 提示里的三件事都写到了吗？<br>② 有没有用上今天学的一个词？<br>③ 结尾的标点写对了吗？</div>
+   <button class=ghost id=say>🔊 读一读我写的句子</button>
+   <button class=go onclick="editor(${ED.u})">再写一句</button>
+   <button class="go alt" onclick="rewrite()">改一改</button>
+   <button class=ghost onclick="goHome()">返回首页</button></div>`);
+  const sb=$("#say");if(sb)sb.onclick=()=>speakText(v);
  };
- ta.focus();
 }
 
 /* ============================================================
@@ -848,7 +941,7 @@ function delM(i){
 function lib(t){
  const same=(t===LT),y=(window.scrollY||0);
  LT=t;if(!same)LQ="";const n=U.length;
- let h=`<div class=top><button class=x onclick="home()" aria-label="返回">✕</button><b class=tt>📚 好句宝库</b><span class=stat>⭐${S.fav.length}</span></div><div class=tabs>`;
+ let h=`<div class=top><button class=x onclick="goHome()" aria-label="返回">✕</button><b class=tt>📚 好句宝库</b><span class=stat>⭐${S.fav.length}</span></div><div class=tabs>`;
  h+=tabBtn(T_FAV,"⭐ 收藏 "+S.fav.length,t);
  h+=tabBtn(T_MINE,"✍️ 我的 "+S.mine.length,t);
  h+=tabBtn(T_ALL,"🔍 全部",t);
@@ -858,7 +951,7 @@ function lib(t){
 
  if(t===T_FAV){
   if(!S.fav.length){
-   h+=`<div class=empty>还没有收藏的词句。<br>到各主题里点 ☆ 就能收藏，复习时随时来读。</div><button class=go style="margin:0 auto;display:block" onclick="lib(${T_ALL})">去逛逛</button>`;
+   h+=`<div class=empty>还没有收藏的词句。<br>到各主题里点 ☆ 就能收藏，复习时随时来读。</div><button class=go style="margin:0 auto;display:block" onclick="goLib(${T_ALL})">去逛逛</button>`;
   }else{
    h+=`<p class=libh>我的收藏 · ${S.fav.length} 条</p>`;
    S.fav.forEach(id=>{
@@ -875,7 +968,7 @@ function lib(t){
   }else{
    h+=`<p class=libh>我的句子 · ${S.mine.length} 句</p>`;
    S.mine.forEach((m,i)=>{
-    h+=`<div class=sc><div class=st>${esc(m.t)}</div><div class=sa>
+    h+=`<div class=sc><div class=st>${esc(m.t)}${m.tpl?`<div class=tr>句式：${m.tpl.replace(/___/g,"＿＿")}</div>`:""}</div><div class=sa>
      <span>${U[m.u]?U[m.u].n:"我的句子"}</span>
      <button class=ic onclick="sayM(${i})" aria-label="朗读">🔊</button>
      <button class=ic onclick="delM(${i})" aria-label="删除">🗑</button></div></div>`;
@@ -898,7 +991,7 @@ function lib(t){
   h+=u.s.map((s,j)=>sCard(ui,j)).join("");
   h+=`<h3 class=gh>本关好词（${u.w.length}）</h3><div class=wlist>${u.w.map((w,j)=>wRow(ui,j)).join("")}</div>`;
   h+=`<div class=tip>💡 ${u.tip}</div>`;
-  h+=`<button class=go style="display:block;margin:14px auto 0" onclick="editor(${ui})">✍️ 用这一关的词写一句</button>`;
+  h+=`<button class=go style="display:block;margin:14px auto 0" onclick="goEditor(${ui})">✍️ 用这一关的词写一句</button>`;
  }
  r(h);
  if(same&&window.scrollTo)window.scrollTo(0,y);else if(window.scrollTo)window.scrollTo(0,0);
@@ -922,6 +1015,51 @@ function filterItems(v){
 }
 
 /* ============================================================
+   作文欣赏
+   ============================================================ */
+function essays(){
+ ETAG="全部";
+ essList();
+}
+function essaysTag(i){
+ ETAG=ETAGS[i]||"全部";
+ essList();
+}
+function essList(){
+ if(window.scrollTo)window.scrollTo(0,0);
+ const list=ESSAYS.map((e,i)=>({e:e,i:i})).filter(x=>ETAG==="全部"||x.e.k===ETAG);
+ let h=`<div class=top><button class=x onclick="goHome()" aria-label="返回">✕</button><b class=tt>📖 作文欣赏</b><span class=stat>${ESSAYS.length} 篇</span></div>
+ <p class=libh>一二年级范文。先读，再挑一句最喜欢的抄下来。</p>
+ <div class=tabs>${ETAGS.map((t,i)=>`<button class="${ETAG===t?"on":""}" onclick="essaysTag(${i})">${t}</button>`).join("")}</div>`;
+ if(!list.length)h+=`<div class=empty>这一类还没有范文。</div>`;
+ list.forEach(x=>{
+  const len=x.e.ps.join("").length;
+  h+=`<button class=ecard onclick="goEssay(${x.i})">
+   <span class=en>${String(x.i+1).padStart(2,"0")}</span>
+   <span class=et><b>${x.e.t}</b><small>${x.e.k} · ${x.e.ps.length} 段 · 约 ${len} 字</small></span>
+   <span class=ea>›</span></button>`;
+ });
+ h+=`<div class=tip>💡 读一篇，只做一件事：找出一句你最想抄下来的句子。</div>`;
+ r(h);
+}
+function essay(i){
+ if(i<0||i>=ESSAYS.length)return;
+ if(window.scrollTo)window.scrollTo(0,0);
+ const e=ESSAYS[i],last=i===ESSAYS.length-1,first=i===0;
+ r(`<div class=top><button class=x onclick="goBack()" aria-label="返回列表">‹</button><b class=tt>${e.t}</b><span class=stat>${i+1}/${ESSAYS.length}</span></div>
+ <div class=dtag>${e.k}</div>
+ <div class=essay>${e.ps.map(p=>"<p>"+p+"</p>").join("")}</div>
+ <div class=note><b>好在哪</b><p>${e.n[0]}</p><b>学一招</b><p>${e.n[1]}</p></div>
+ <p class=libh>读完后，挑一句你最喜欢的，抄进本子里。</p>
+ <button class=go id=rd style="display:block;margin:0 auto 10px">🔊 朗读全文</button>
+ <div class=btnrow>
+  <button class=mini ${first?"disabled":""} onclick="essay(${i-1})">‹ 上一篇</button>
+  <button class=mini ${last?"disabled":""} onclick="essay(${i+1})">下一篇 ›</button>
+ </div>`);
+ const b=$("#rd");if(b)b.onclick=()=>speakText(e.ps.join(""));
+}
+
+/* ============================================================
    学习报告 / 备份
    ============================================================ */
 function report(){
@@ -930,7 +1068,7 @@ function report(){
  const starN=Object.keys(S.stars).reduce((a,k)=>a+(S.stars[k]||0),0);
  const ans=S.right+S.wrong,acc=ans?Math.round(100*S.right/ans):0;
  const weak=weakList(5);
- let h=`<div class=top><button class=x onclick="home()" aria-label="返回">✕</button><b class=tt>📊 学习报告</b><span class=stat>${new Date().toLocaleDateString("zh-CN")}</span></div>
+ let h=`<div class=top><button class=x onclick="goHome()" aria-label="返回">✕</button><b class=tt>📊 学习报告</b><span class=stat>${new Date().toLocaleDateString("zh-CN")}</span></div>
  <div class=kpis>
   <div class=kpi><b>${doneN}/${U.length}</b><span>已通关关卡</span></div>
   <div class=kpi><b>${starN}</b><span>获得星星（满分 ${U.length*3}）</span></div>
@@ -945,10 +1083,10 @@ function report(){
  if(!weak.length)h+=`<p class=libh>还没有错题记录。继续闯关，系统会把错得多的词句记在这里。</p>`;
  else{
   h+=`<div class=sc>${weak.map(x=>`<div class=weak><span>${x.t}</span><i>错 ${x.w} 次</i></div>`).join("")}</div>
-  <button class=go style="display:block;margin:0 auto 6px" onclick="review(true)">只练这 ${weak.length} 题</button>`;
+  <button class=go style="display:block;margin:0 auto 6px" onclick="goReview(true)">只练这 ${weak.length} 题</button>`;
  }
  h+=`<h3 class=gh>我的句子</h3><p class=libh>已写 ${S.mine.length} 句。仿写是把“看懂”变成“会写”的关键一步。</p>
- <div class=btnrow><button class=mini onclick="lib(${T_MINE})">查看我的句子</button><button class=mini onclick="editor(${EDU||0})">继续写一句</button></div>
+ <div class=btnrow><button class=mini onclick="goLib(${T_MINE})">查看我的句子</button><button class=mini onclick="goWrite()">继续写一句</button></div>
  <h3 class=gh>数据备份</h3><p class=libh>换设备或清理浏览器前，导出一份备份；导入会覆盖当前进度。</p>
  <div class=btnrow>
   <button class=mini onclick="exportData()">⬇️ 导出备份</button>
@@ -956,7 +1094,7 @@ function report(){
   <button class=mini onclick="resetAll()" style="color:var(--r)">清空进度</button>
  </div>
  <input id=imp type=file accept="application/json,.json" style="display:none">
- <p class=foot>数据只保存在这台设备的浏览器里，不会上传。<br>作文通 · 词句闯关 v3</p>`;
+ <p class=foot>数据只保存在这台设备的浏览器里，不会上传。<br>作文通 · 词句闯关 v5.1 · 可安装/离线</p>`;
  r(h);
  const imp=$("#imp");
  if(imp)imp.onchange=e=>{
@@ -985,10 +1123,13 @@ function exportData(){
 function importPick(){const el=document.getElementById("imp");if(el)el.click()}
 function resetAll(){
  if(!confirm("确定清空所有进度？包括关卡、星星、收藏和我的句子。此操作无法撤销。"))return;
- S=fresh();save();home();
+ S=fresh();save();goHome();
 }
 
-/* 启动 */
+/* 启动：注册 Service Worker（仅 https 生效，本地 file:// 自动跳过） */
+if("serviceWorker" in navigator&&location.protocol==="https:"){
+ window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});
+}
 home();
 </script>
 </body></html>

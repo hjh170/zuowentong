@@ -1,15 +1,17 @@
 # 作文通 · 优秀作文词句闯关
 
-一个面向小学生的**词句积累闯关小应用**，单文件 HTML，打开即玩。每天积累好词好句，让作文写得更漂亮。
+一个面向小学生的**词句积累闯关应用**。每天积累好词好句，让作文写得更漂亮。
 
 **在线体验**
 
-- GitHub Pages：https://hjh170.github.io/zuowentong/
 - Cloudflare Pages：https://zuowentong.pages.dev/
+- GitHub Pages：https://hjh170.github.io/zuowentong/
 
-- 入口文件：`index.html`（双击即可在浏览器打开）
-- 形态：纯前端单页应用，无任何外部依赖（不联网、不加载 CDN、无构建步骤）
-- 适配：移动端优先（最大宽度 480px），支持安全区、系统深浅色主题自动切换
+## 形态与适配
+
+- 纯前端单页应用，零外部依赖、无构建步骤；内容全部内置，不联网也能用
+- **可安装为 App**：带 `manifest.webmanifest` + Service Worker，支持添加到主屏幕、离线打开
+- 移动端优先（最大宽度 480px），支持安全区、系统深浅色自动切换、减少动效偏好
 
 ## 功能
 
@@ -19,23 +21,35 @@
 | 闯关 | 15 个关卡，按「小学低中年级 / 小学高年级 / 初中」三个学段分组，逐关解锁 |
 | 题型 | 选词填空、词语排序成句、修辞判断、按词条出题等，答错扣爱心值（❤️） |
 | 今日复习 | 按到期队列复习学过的词句，可只复习答错的题 |
-| 好句宝库 | 浏览全部好句，支持朗读与收藏 |
-| 学习报告 | 统计已学词句、薄弱点，给出针对性提示 |
+| 好句宝库 | 全部好词好句、名言、按主题检索，支持朗读与收藏 |
+| 范文欣赏 | 一二年级范文，含「好在哪 · 学一招」，可整篇朗读 |
+| 仿写练习 | 按句式模板写自己的句子，存进「我的句子」 |
+| 学习报告 | 通关进度、正确率、薄弱词句 Top 5、数据导出/导入 |
 | 激励系统 | 连击 🔥、经验 ⭐、关卡星级、通关进度条 |
 
 ## 文件结构
 
 ```
 zuowentong/
-├── index.html    # 全部代码（样式、题库、交互逻辑都在这一个文件里）
-├── README.md     # 项目说明
-├── LICENSE.md    # 授权协议（CC BY-NC 4.0）
+├── index.html              # 应用本体（样式、题库、交互逻辑）
+├── manifest.webmanifest    # PWA 清单（名称、图标、启动方式）
+├── sw.js                   # Service Worker（离线缓存）
+├── icon-192.png            # 图标 192 × 192
+├── icon-512.png            # 图标 512 × 512
+├── icon-maskable-512.png   # 自适应图标（maskable）
+├── icon-180.png            # iOS 主屏图标
+├── make_icons.py           # 图标生成脚本（PIL）
+├── smoke_test.js           # 冒烟测试：最小 DOM 桩跑通主要流程
+├── README.md
+├── LICENSE.md              # 授权协议（CC BY-NC 4.0）
 └── .gitignore
 ```
 
 ## 运行方式
 
-直接双击 `index.html`，或在本地起一个静态服务：
+直接双击 `index.html` 即可使用（单文件模式，PWA 相关能力自动跳过）。
+
+要完整体验安装与离线，需要走 http(s)：
 
 ```bash
 cd zuowentong
@@ -43,19 +57,31 @@ python3 -m http.server 8080
 # 浏览器打开 http://localhost:8080
 ```
 
+部署到线上后，iOS Safari「分享 → 添加到主屏幕」、Android Chrome「安装应用」即可获得独立图标与全屏运行。
+
 ## 数据与进度
 
-- 学习进度保存在浏览器 `localStorage`，键名 `zwt3`（旧版 `zwt2` 会自动迁移）
+- 进度保存在浏览器 `localStorage`，当前键名 `zwt4`；首次运行会自动从旧版 `zwt3` / `zwt2` **迁移**，不会丢关卡与收藏
 - 换浏览器、清缓存或隐私模式下进度不保留，页面会给出提示
+- 学习报告页支持导出/导入 JSON 备份
 - 朗读依赖系统中文语音（macOS / iOS 自带；部分安卓机需安装中文语音包）
 
-## 后续可选发布方式
+## 开发与自测
 
-当前仅作为本地项目整理，尚未上线。需要时可以：
+```bash
+node smoke_test.js     # 主要页面与答题流程冒烟（离线 DOM 桩）
+python3 make_icons.py  # 重新生成图标
+```
 
-1. 推到 GitHub 仓库并开启 GitHub Pages，得到公开访问链接
-2. 部署到 EdgeOne Makers 等静态托管平台
-3. 打包成单个 HTML 发给别人（本身就是单文件，直接发送即可）
+## 部署
+
+- GitHub Pages：推送到 `main` 自动构建
+- Cloudflare Pages（直接上传模式，暂未接 Git 自动构建）：
+
+```bash
+cd zuowentong
+wrangler pages deploy . --project-name=zuowentong --branch=main
+```
 
 ## 许可证
 
@@ -64,7 +90,3 @@ python3 -m http.server 8080
 - 可以：自由复制、分享、改编（含二次创作），需署名并说明是否修改
 - 不可以：用于商业目的；不得附加额外限制
 - 商业使用需另行取得著作权人书面授权
-
-## 备注
-
-本目录中的 `index.html` 是桌面 `小学优秀作文/作文通-升级版.html` 的副本，原文件保持不动。
